@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/monogatari-timeline/static/css/main.8c8b27cf.chunk.css",
+    "main.js": "/monogatari-timeline/static/js/main.6dc36b7b.chunk.js",
+    "main.js.map": "/monogatari-timeline/static/js/main.6dc36b7b.chunk.js.map",
+    "runtime-main.js": "/monogatari-timeline/static/js/runtime-main.8e001c33.js",
+    "runtime-main.js.map": "/monogatari-timeline/static/js/runtime-main.8e001c33.js.map",
+    "static/js/2.484c46dc.chunk.js": "/monogatari-timeline/static/js/2.484c46dc.chunk.js",
+    "static/js/2.484c46dc.chunk.js.map": "/monogatari-timeline/static/js/2.484c46dc.chunk.js.map",
+    "static/js/3.31c191bd.chunk.js": "/monogatari-timeline/static/js/3.31c191bd.chunk.js",
+    "static/js/3.31c191bd.chunk.js.map": "/monogatari-timeline/static/js/3.31c191bd.chunk.js.map",
+    "index.html": "/monogatari-timeline/index.html",
+    "static/css/main.8c8b27cf.chunk.css.map": "/monogatari-timeline/static/css/main.8c8b27cf.chunk.css.map",
+    "static/js/2.484c46dc.chunk.js.LICENSE.txt": "/monogatari-timeline/static/js/2.484c46dc.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/monogatari-timeline/static/media/logo.6ce24c58.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8e001c33.js",
+    "static/js/2.484c46dc.chunk.js",
+    "static/css/main.8c8b27cf.chunk.css",
+    "static/js/main.6dc36b7b.chunk.js"
+  ]
+}
