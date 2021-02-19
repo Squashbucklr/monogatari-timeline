@@ -1,0 +1,43 @@
+.Timeline {
+    flex: 1 0 0px;
+}
+
+.timeline-inner {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+}
+
+.timeline-line {
+    flex: 0 0 2px;
+    background-color: #FFF;
+}
+
+.timeline-dategap {
+    position: relative;
+    flex: 0 0 60px;
+    text-align: center;
+}
+
+.timeline-date {
+    line-height: 20px;
+    width: 60px;
+    left: 0;
+    position: absolute;
+}
+
+.timeline-arcgap {
+    position: relative;
+    flex: 0 0 200px;
+    text-align: left;
+}
+
+.timeline-arc {
+    line-height: 20px;
+    width: 200px;
+    background-color: #111111;
+    border-top: 1px solid #555555;
+    border-bottom: 1px solid #555555;
+    left: 0;
+    position: absolute;
+}
