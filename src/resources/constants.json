@@ -31,40 +31,52 @@
     "characters": [
         {
             "family": "Araragi",
-            "given": "Koyomi"
+            "given": "Koyomi",
+            "tint": "#666666"
         }, {
             "family": "Senjougahara",
-            "given": "Hitagi" 
+            "given": "Hitagi",
+            "tint": "#800080"
         }, {
             "family": "Hachikuji",
-            "given": "Mayoi" 
+            "given": "Mayoi",
+            "tint": "#0080FF"
         }, {
             "family": "Kanbaru",
-            "given": "Suruga" 
+            "given": "Suruga",
+            "tint": "#FF0000" 
         }, {
             "family": "Sengoku",
-            "given": "Nadeko" 
+            "given": "Nadeko",
+            "tint": "#008000"
         }, {
             "family": "Hanekawa",
-            "given": "Tsubasa" 
+            "given": "Tsubasa",
+            "tint": "#E4B7E6"
         }, {
             "family": "Araragi",
-            "given": "Karen" 
+            "given": "Karen",
+            "tint": "#FFFF00"
         }, {
             "family": "Araragi",
-            "given": "Tsukihi" 
+            "given": "Tsukihi",
+            "tint": "#00FF80"
         }, {
             "family": "Oshino",
-            "given": "Shinobu" 
+            "given": "Shinobu",
+            "tint": "#800000"
         }, {
             "family": "Ononoki",
-            "given": "Yotsugi" 
+            "given": "Yotsugi",
+            "tint": "#FF8040"
         }, {
             "family": "Oshino",
-            "given": "Ougi" 
+            "given": "Ougi",
+            "tint": "#222222"
         }, {
             "family": "Oikura",
-            "given": "Sodachi" 
+            "given": "Sodachi",
+            "tint": "#FFFFFF"
         }, {
             "family": "Kaiki",
             "given": "Deishuu"
@@ -180,7 +192,7 @@
             "name": "Tsubasa Tiger",
             "focus": 5,
             "narrator": 5,
-            "start": 10821,
+            "start": 10821.3,
             "end": 10825,
             "anime": 3,
             "ln": 4,
@@ -411,7 +423,7 @@
             "focus": 2,
             "narrator": 0,
             "start": 20313.5,
-            "end": 20313.5,
+            "end": 20313.6,
             "anime": 9,
             "ln": 12,
             "image": [27, 28],
@@ -420,7 +432,7 @@
             "name": "Hitagi Rendezvous",
             "focus": 1,
             "narrator": 0,
-            "start": 20313.6,
+            "start": 20313.7,
             "end": 20314.4,
             "anime": 9,
             "ln": 12,

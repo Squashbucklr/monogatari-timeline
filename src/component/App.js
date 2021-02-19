@@ -13,7 +13,7 @@ class App extends React.Component {
         super(props);
         this.state = {
             arcsOrder: [...Array(constants.arcs.length).keys()],
-            arcs: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35],
+            arcs: [],
             spoiler: {
                 alwaysShowCompletedArcs: true,
                 hideSpoilerArcs: true,
@@ -36,7 +36,7 @@ class App extends React.Component {
     }
 
     setViewArcs = (arcs) => {
-        this.setState({arcs: []});
+        this.setState({arcs: arcs});
     }
 
     onPeek = (index) => {
@@ -47,17 +47,17 @@ class App extends React.Component {
         return (
             <div className="App">
                 <HeadTitle/>
-                <Timeline
-                    arcs={this.state.arcs}
-                    peek={this.state.peek}
-                    onPeek={this.onPeek}
-                />
                 <Settings
                     arcsOrder={this.state.arcsOrder}
                     spoiler={this.state.spoiler}
                     setArcsOrder={this.setArcsOrder}
                     setSpoiler={this.setSpoiler}
                     setViewArcs={this.setViewArcs}
+                />
+                <Timeline
+                    arcs={this.state.arcs}
+                    peek={this.state.peek}
+                    onPeek={this.onPeek}
                 />
             </div>
         );

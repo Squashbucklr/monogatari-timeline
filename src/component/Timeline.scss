@@ -1,5 +1,6 @@
 .Timeline {
     flex: 1 0 0px;
+    width: 100%;
 }
 
 .timeline-inner {
@@ -24,20 +25,31 @@
     width: 60px;
     left: 0;
     position: absolute;
+    padding-bottom: 4px;
+    border-top: 1px solid #222;
+    border-bottom: 1px solid #222;
+}
+
+.timeline-date:first-of-type {
+    border-top-color: #000;
+}
+
+.timeline-date:last-of-type {
+    border-bottom-color: #000;
 }
 
 .timeline-arcgap {
     position: relative;
-    flex: 0 0 200px;
+    flex: 0 1 200px;
     text-align: left;
 }
 
 .timeline-arc {
     line-height: 20px;
-    width: 200px;
-    background-color: #111111;
-    border-top: 1px solid #555555;
-    border-bottom: 1px solid #555555;
+    width: 190px;
+    padding: 0px 5px;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
     left: 0;
     position: absolute;
 }

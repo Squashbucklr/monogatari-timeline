@@ -19,7 +19,11 @@ class Settings extends React.Component {
     }
 
     onArcClick = (index) => {
-        
+        this.props.setViewArcs(this.props.arcsOrder.slice(0, index));
+    }
+
+    handleChange = (e) => {
+        this.onArcClick(e.target.value);
     }
 
     render() {
@@ -27,7 +31,7 @@ class Settings extends React.Component {
             <div
                 className="Settings"
             >
-                
+                <input onChange={this.handleChange}/>
             </div>
         );
     }

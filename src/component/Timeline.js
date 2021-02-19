@@ -62,88 +62,123 @@ class Timeline extends React.Component {
     }
 
     getBlocks() {
-        let tosort = [];
-
+        // Collect every arc start or end in sorted order
+        let events = [];
         for (let i = 0; i < this.props.arcs.length; i++) {
-            tosort.push({
+            events.push({
                 date: constants.arcs[this.props.arcs[i]].start,
                 on: true,
                 araragi: constants.arcs[this.props.arcs[i]].narrator == 0,
                 arc: this.props.arcs[i]
             });
-            tosort.push({
+            events.push({
                 date: constants.arcs[this.props.arcs[i]].end,
                 on: false,
                 araragi: constants.arcs[this.props.arcs[i]].narrator == 0,
                 arc: this.props.arcs[i]
             });
         }
-
-        tosort.sort(function(a, b) {
+        events.sort(function(a, b) {
             return a.date - b.date;
         });
 
-        console.log(tosort);
+        // get events on a per-day basis
+        let dates = [];
+        let cur_date = 0;
+        for (let i = 0; i < events.length; i++) {
+            if (Math.floor(events[i].date) != cur_date) {
+                dates.push({
+                    date: Math.floor(events[i].date),
+                    events: []
+                });
+                cur_date = Math.floor(events[i].date);
+            }
+            dates[dates.length - 1].events.push(events[i]);
+        }
+
+        console.log(dates);
 
         let blocks_date = [];
         let blocks_araragi = [];
         let blocks_other = [];
+        
+        let cur_araragi = null;
+        let cur_other = null;
 
-        let block_date = {
-            height: 0,
-            top: 0,
-            name: tosort[0].date
-        };
-        let block_araragi = null;
-        let block_other = null;
+        let pre_date_height = 0;
 
-        let cur_date = tosort[0].date;
-        let cur_top = 0;
+        for (let i = 0; i < dates.length; i++) {
+            let date_height = 0;
+            let cur_subdate = dates[i].events[0].date;
+            let ex_araragi_bump = false;
+            let ex_other_bump = false;
 
-        for (let i = 0; i < tosort.length; i++) {
-            let c = tosort[i];
-
-            if (Math.floor(c.date) == cur_date) {
-                block_date.height++;
-            } else {
-                cur_date = Math.floor(c.date);
-                blocks_date.push(block_date);
-                block_date = {
-                    height: 1,
-                    top: cur_top,
-                    name: c.date
+            let bump = function(e) {
+                let exjump = 0;
+                if(ex_araragi_bump) {
+                    if (e && e.on && e.araragi) {
+                        exjump = 1;
+                        ex_other_bump = false;
+                    }
+                    ex_araragi_bump = false;
                 }
+                if(ex_other_bump) {
+                    if (e && e.on && !e.araragi) {
+                        exjump = 1;
+                    }
+                    ex_other_bump = false;
+                }
+                date_height += 1 //+ exjump;
+                if (cur_araragi) cur_araragi.height += 1 + exjump;
+                if (cur_other) cur_other.height += 1 + exjump;
+                
             }
 
-            if(block_araragi) block_araragi.height++;
-            if(block_other) block_other.height++;
+            for (let j = 0; j < dates[i].events.length; j++) {
+                let e = dates[i].events[j];
 
-            if (c.araragi) {
-                if (c.on) {
-                    block_araragi = {
-                        arc: c.arc,
-                        height: 1,
-                        top: cur_top
-                    };
+                if (e.on) {
+                    if (e.araragi) {
+                        cur_araragi = {
+                            arc: e.arc,
+                            height: 0,
+                            top: pre_date_height + date_height
+                        };
+                    } else {
+                        cur_other = {
+                            arc: e.arc,
+                            height: 0,
+                            top: pre_date_height + date_height
+                        };
+                    }
                 } else {
-                    blocks_araragi.push(block_araragi);
-                    block_araragi = null;
-                }
-            } else {
-                if (c.on) {
-                    block_other = {
-                        arc: c.arc,
-                        height: 1,
-                        top: cur_top
-                    };
-                } else {
-                    blocks_other.push(block_other);
-                    block_other = null;
+                    if (date_height == 0 || (cur_araragi && cur_araragi.height == 0) || (cur_other && cur_other.height == 0)) {
+                        bump(e);
+                    }
+                    if (e.araragi) {
+                        blocks_araragi.push(cur_araragi);
+                        cur_araragi = null;
+                        ex_araragi_bump = true;
+                    } else {
+                        blocks_other.push(cur_other);
+                        cur_other = null;
+                        ex_other_bump = true;
+                    }
                 }
             }
-            cur_top++;
+            if (date_height == 0 || (cur_araragi && cur_araragi.height == 0) || (cur_other && cur_other.height == 0)) {
+                bump();
+            }
+            blocks_date.push({
+                date: dates[i].date,
+                top: pre_date_height,
+                height: date_height
+            });
+            pre_date_height += date_height;
         }
-        return {date: blocks_date, araragi: blocks_araragi, other: blocks_other};
+
+        
+        return {date: blocks_date, araragi: blocks_araragi, other: blocks_other, height: pre_date_height};
     }
 
     render() {
@@ -158,8 +193,8 @@ class Timeline extends React.Component {
             items_date.push(
                 <div className="timeline-date" key={"d" + i} style={{
                     top: (20 * blocks.date[i].top),
-                    'line-height': (20 * blocks.date[i].height)
-                }}>{dateToHuman(blocks.date[i].name)}</div>
+                    lineHeight: (20 * blocks.date[i].height) - 6 + 'px'
+                }}>{dateToHuman(blocks.date[i].date)}</div>
             );
         }
 
@@ -167,7 +202,8 @@ class Timeline extends React.Component {
             items_araragi.push(
                 <div className="timeline-arc" key={"a" + i} style={{
                     top: (20 * blocks.araragi[i].top),
-                    'line-height': (20 * blocks.araragi[i].height) - 2
+                    lineHeight: (20 * blocks.araragi[i].height) - 2 + 'px',
+                    backgroundColor: constants.characters[constants.arcs[blocks.araragi[i].arc].focus].tint + "44"
                 }}>{constants.arcs[blocks.araragi[i].arc].name}</div>
             );
         }
@@ -176,7 +212,8 @@ class Timeline extends React.Component {
             items_other.push(
                 <div className="timeline-arc" key={"o" + i} style={{
                     top: (20 * blocks.other[i].top),
-                    'line-height': (20 * blocks.other[i].height) - 2
+                    lineHeight: (20 * blocks.other[i].height) - 2 + 'px',
+                    backgroundColor: constants.characters[constants.arcs[blocks.other[i].arc].focus].tint + "66"
                 }}>{constants.arcs[blocks.other[i].arc].name}</div>
             );
         }
@@ -184,15 +221,15 @@ class Timeline extends React.Component {
         return (
             <div className="Timeline">
                 <div className="timeline-inner">
-                    <div className="timeline-arcgap" style={{height: this.state.totalHeight}}>
+                    <div className="timeline-arcgap" style={{height: 20 * blocks.height}}>
                         {items_other}
                     </div>
-                    <div className="timeline-line"></div>
-                    <div className="timeline-dategap" style={{height: this.state.totalHeight}}>
+                    <div className="timeline-line" style={{height: 20 * blocks.height}}></div>
+                    <div className="timeline-dategap" style={{height: 20 * blocks.height}}>
                         {items_date}
                     </div>
-                    <div className="timeline-line"></div>
-                    <div className="timeline-arcgap" style={{height: this.state.totalHeight}}>
+                    <div className="timeline-line" style={{height: 20 * blocks.height}}></div>
+                    <div className="timeline-arcgap" style={{height: 20 * blocks.height}}>
                         {items_araragi}
                     </div>
                 </div>
