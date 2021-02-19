@@ -1,0 +1,339 @@
+{
+    "anime": [
+        "Bakemonogatari",
+        "Nisemonogatari",
+        "Nekomonogatari: Kuro",
+        "Monogatari Series: Second Season",
+        "Hanamonogatari",
+        "Tsukimonogatari",
+        "Owarimonogatari",
+        "Kizumonogatari",
+        "Koyomimonogatari",
+        "Owarimonogatari 2nd Season",
+        "Zoku Owarimonogatari"
+    ],
+    "ln": [
+        "Bakemonogatari",
+        "Kizumonogatari",
+        "Nisemonogatari",
+        "Nekomonogatari: Kuro",
+        "Nekomonogatari: Shiro",
+        "Kabukimonogatari",
+        "Hanamonogatari",
+        "Otorimonogatari",
+        "Onimonogatari",
+        "Koimonogatari",
+        "Tsukimonogatari",
+        "Koyomimonogatari",
+        "Owarimonogatari",
+        "Zoku Owarimonogatari"
+    ],
+    "characters": [{
+        "family": "Araragi",
+        "given": "Koyomi"
+    }, {
+        "family": "Senjougahara",
+        "given": "Hitagi" 
+    }, {
+        "family": "Hachikuji",
+        "given": "Mayoi" 
+    }, {
+        "family": "Kanbaru",
+        "given": "Suruga" 
+    }, {
+        "family": "Sengoku",
+        "given": "Nadeko" 
+    }, {
+        "family": "Hanekawa",
+        "given": "Tsubasa" 
+    }, {
+        "family": "Araragi",
+        "given": "Karen" 
+    }, {
+        "family": "Araragi",
+        "given": "Tsukihi" 
+    }, {
+        "family": "Oshino",
+        "given": "Shinobu" 
+    }, {
+        "family": "Ononoki",
+        "given": "Yotsugi" 
+    }, {
+        "family": "Oshino",
+        "given": "Ougi" 
+    }, {
+        "family": "Oikura",
+        "given": "Sodachi" 
+    }, {
+        "family": "Kaiki",
+        "given": "Deishuu"
+    }],
+    "character_index": {
+        "Koyomi": 0,
+        "Hitagi": 1,
+        "Mayoi": 2,
+        "Suruga": 3,
+        "Nadeko": 4,
+        "Tsubasa": 5,
+        "Karen": 6,
+        "Tsukihi": 7,
+        "Shinobu": 8,
+        "Yotsugi": 9,
+        "Ougi": 10,
+        "Sodachi": 11,
+        "Deishuu": 12
+    },
+    "arcs": [{
+        "name": "Hitagi Crab",
+        "focus": 1,
+        "narrator": 0,
+        "anime": 0,
+        "ln": 0,
+        "spoiler": false
+    }, {
+        "name": "Mayoi Snail",
+        "focus": 2,
+        "narrator": 0,
+        "anime": 0,
+        "ln": 0,
+        "spoiler": false
+    }, {
+        "name": "Suruga Monkey",
+        "focus": 3,
+        "narrator": 0,
+        "anime": 0,
+        "ln": 0,
+        "spoiler": false
+    }, {
+        "name": "Nadeko Snake",
+        "focus": 4,
+        "narrator": 0,
+        "anime": 0,
+        "ln": 0,
+        "spoiler": false
+    }, {
+        "name": "Tsubasa Cat",
+        "focus": 5,
+        "narrator": 0,
+        "anime": 0,
+        "ln": 0,
+        "spoiler": false
+    }, {
+        "name": "Koyomi Vamp",
+        "focus": 0,
+        "narrator": 0,
+        "anime": 7,
+        "ln": 1,
+        "spoiler": false
+    }, {
+        "name": "Karen Bee",
+        "focus": 6,
+        "narrator": 0,
+        "anime": 1,
+        "ln": 2,
+        "spoiler": false
+    }, {
+        "name": "Tsukihi Phoenix",
+        "focus": 7,
+        "narrator": 0,
+        "anime": 1,
+        "ln": 2,
+        "spoiler": false
+    }, {
+        "name": "Tsubasa Family",
+        "focus": 5,
+        "narrator": 0,
+        "anime": 2,
+        "ln": 3,
+        "spoiler": false
+    }, {
+        "name": "Tsubasa Tiger",
+        "focus": 5,
+        "narrator": 5,
+        "anime": 3,
+        "ln": 4,
+        "spoiler": false
+    }, {
+        "name": "Mayoi Jiangshi",
+        "focus": 2,
+        "narrator": 0,
+        "anime": 3,
+        "ln": 5,
+        "spoiler": false
+    }, {
+        "name": "Suruga Devil",
+        "focus": 3,
+        "narrator": 3,
+        "anime": 4,
+        "ln": 6,
+        "spoiler": false
+    }, {
+        "name": "Nadeko Medusa",
+        "focus": 4,
+        "narrator": 4,
+        "anime": 3,
+        "ln": 7,
+        "spoiler": true
+    }, {
+        "name": "Shinobu Time",
+        "focus": 8,
+        "narrator": 0,
+        "anime": 3,
+        "ln": 8,
+        "spoiler": false
+    }, {
+        "name": "Hitagi End",
+        "focus": 1,
+        "narrator": 12,
+        "anime": 3,
+        "ln": 9,
+        "spoiler": false
+    }, {
+        "name": "Yotsugi Doll",
+        "focus": 9,
+        "narrator": 0,
+        "anime": 5,
+        "ln": 10,
+        "spoiler": false
+    }, {
+        "name": "Koyomi Stone",
+        "focus": 0,
+        "narrator": 0,
+        "anime": 8,
+        "ln": 11,
+        "spoiler": false
+    }, {
+        "name": "Koyomi Flower",
+        "focus": 0,
+        "narrator": 0,
+        "anime": 8,
+        "ln": 11,
+        "spoiler": false
+    }, {
+        "name": "Koyomi Sand",
+        "focus": 0,
+        "narrator": 0,
+        "anime": 8,
+        "ln": 11,
+        "spoiler": false
+    }, {
+        "name": "Koyomi Water",
+        "focus": 0,
+        "narrator": 0,
+        "anime": 8,
+        "ln": 11,
+        "spoiler": false
+    }, {
+        "name": "Koyomi Wind",
+        "focus": 0,
+        "narrator": 0,
+        "anime": 8,
+        "ln": 11,
+        "spoiler": false
+    }, {
+        "name": "Koyomi Tree",
+        "focus": 0,
+        "narrator": 0,
+        "anime": 8,
+        "ln": 11,
+        "spoiler": false
+    }, {
+        "name": "Koyomi Tea",
+        "focus": 0,
+        "narrator": 0,
+        "anime": 8,
+        "ln": 11,
+        "spoiler": false
+    }, {
+        "name": "Koyomi Mountain",
+        "focus": 0,
+        "narrator": 0,
+        "anime": 8,
+        "ln": 11,
+        "spoiler": false
+    }, {
+        "name": "Koyomi Torus",
+        "focus": 0,
+        "narrator": 0,
+        "anime": 8,
+        "ln": 11,
+        "spoiler": false
+    }, {
+        "name": "Koyomi Seed",
+        "focus": 0,
+        "narrator": 0,
+        "anime": 8,
+        "ln": 11,
+        "spoiler": false
+    }, {
+        "name": "Koyomi Nothing",
+        "focus": 0,
+        "narrator": 0,
+        "anime": 8,
+        "ln": 11,
+        "spoiler": false
+    }, {
+        "name": "Koyomi Dead",
+        "focus": 0,
+        "narrator": 0,
+        "anime": 8,
+        "ln": 11,
+        "spoiler": true
+    }, {
+        "name": "Ougi Formula",
+        "focus": 10,
+        "narrator": 0,
+        "anime": 6,
+        "ln": 12,
+        "spoiler": false
+    }, {
+        "name": "Sodachi Riddle",
+        "focus": 11,
+        "narrator": 0,
+        "anime": 6,
+        "ln": 12,
+        "spoiler": false
+    }, {
+        "name": "Sodachi Lost",
+        "focus": 11,
+        "narrator": 0,
+        "anime": 6,
+        "ln": 12,
+        "spoiler": false
+    }, {
+        "name": "Shinobu Mail",
+        "focus": 8,
+        "narrator": 0,
+        "anime": 6,
+        "ln": 12,
+        "spoiler": false
+    }, {
+        "name": "Mayoi Hell",
+        "focus": 2,
+        "narrator": 0,
+        "anime": 9,
+        "ln": 12,
+        "spoiler": true
+    }, {
+        "name": "Hitagi Rendezvous",
+        "focus": 1,
+        "narrator": 0,
+        "anime": 9,
+        "ln": 12,
+        "spoiler": false
+    }, {
+        "name": "Ougi Dark",
+        "focus": 10,
+        "narrator": 0,
+        "anime": 9,
+        "ln": 12,
+        "spoiler": false
+    }, {
+        "name": "Koyomi Reverse",
+        "focus": 0,
+        "narrator": 0,
+        "anime": 10,
+        "ln": 13,
+        "spoiler": false
+    }]
+}
