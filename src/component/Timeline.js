@@ -1,56 +1,70 @@
-import { ArchiveSharp } from '@material-ui/icons';
+import { ArchiveSharp, FormatAlignRight } from '@material-ui/icons';
 import React from 'react';
 import constants from '../resources/constants.json';
 
 import './Timeline.scss';
 
-function dateToHuman(date) {
+function dateConvert(date) {
     date = Math.floor(date);
     let year = Math.floor(date / 10000);
     let month = Math.floor((date - (year * 10000)) / 100);
     let day = date - (year * 10000) - (month * 100);
 
-    let ret = "";
+    let human = "";
+    let epoch = -84 + (356 * (year - 1)) + day;
+
     switch (month) {
         case 1:
-            ret += "Jan ";
+            human += "Jan ";
+            epoch += 0;
             break;
         case 2:
-            ret += "Feb ";
+            human += "Feb ";
+            epoch += 31;
             break;
         case 3:
-            ret += "Mar ";
+            human += "Mar ";
+            epoch += 28;
             break;
         case 4:
-            ret += "Apr ";
+            human += "Apr ";
+            epoch += 31;
             break;
         case 5:
-            ret += "May ";
+            human += "May ";
+            epoch += 30;
             break;
         case 6:
-            ret += "Jun ";
+            human += "Jun ";
+            epoch += 31;
             break;
         case 7:
-            ret += "Jul ";
+            human += "Jul ";
+            epoch += 30;
             break;
         case 8:
-            ret += "Aug ";
+            human += "Aug ";
+            epoch += 31;
             break;
         case 9:
-            ret += "Sep ";
+            human += "Sep ";
+            epoch += 31;
             break;
         case 10:
-            ret += "Oct ";
+            human += "Oct ";
+            epoch += 30;
             break;
         case 11:
-            ret += "Nov ";
+            human += "Nov ";
+            epoch += 31;
             break;
         case 12:
-            ret += "Dec ";
+            human += "Dec ";
+            epoch += 30;
             break;
     }
-    ret += day;
-    return ret;
+    human += day;
+    return {human, epoch};
 }
 
 class Timeline extends React.Component {
@@ -192,17 +206,19 @@ class Timeline extends React.Component {
         for (let i = 0; i < blocks.date.length; i++) {
             items_date.push(
                 <div className="timeline-date" key={"d" + i} style={{
-                    top: (20 * blocks.date[i].top),
-                    lineHeight: (20 * blocks.date[i].height) - 6 + 'px'
-                }}>{dateToHuman(blocks.date[i].date)}</div>
+                    top: (15 * blocks.date[i].top),
+                    lineHeight: (15 * blocks.date[i].height) - 6 + 'px',
+                    height: (15 * blocks.date[i].height) - 6 + 'px'
+                }}>{dateConvert(blocks.date[i].date).human}</div>
             );
         }
 
         for (let i = 0; i < blocks.araragi.length; i++) {
             items_araragi.push(
                 <div className="timeline-arc" key={"a" + i} style={{
-                    top: (20 * blocks.araragi[i].top),
-                    lineHeight: (20 * blocks.araragi[i].height) - 2 + 'px',
+                    top: (15 * blocks.araragi[i].top),
+                    lineHeight: (15 * blocks.araragi[i].height) - 2 + 'px',
+                    height: (15 * blocks.araragi[i].height) - 2 + 'px',
                     backgroundColor: constants.characters[constants.arcs[blocks.araragi[i].arc].focus].tint + "44"
                 }}>{constants.arcs[blocks.araragi[i].arc].name}</div>
             );
@@ -211,27 +227,48 @@ class Timeline extends React.Component {
         for (let i = 0; i < blocks.other.length; i++) {
             items_other.push(
                 <div className="timeline-arc" key={"o" + i} style={{
-                    top: (20 * blocks.other[i].top),
-                    lineHeight: (20 * blocks.other[i].height) - 2 + 'px',
-                    backgroundColor: constants.characters[constants.arcs[blocks.other[i].arc].focus].tint + "66"
+                    top: (15 * blocks.other[i].top),
+                    lineHeight: (15 * blocks.other[i].height) - 2 + 'px',
+                    height: (15 * blocks.other[i].height) - 2 + 'px',
+                    backgroundColor: constants.characters[constants.arcs[blocks.other[i].arc].focus].tint + "66",
+                    textAlign: 'right'
                 }}>{constants.arcs[blocks.other[i].arc].name}</div>
+            );
+        }
+
+        let araragi = [];
+        let other = [];
+
+        if (blocks.araragi.length) {
+            araragi.push(
+                <div className="timeline-line" style={{height: 15 * blocks.height}}></div>
+            );
+            araragi.push(
+                <div className="timeline-arcgap" style={{height: 15 * blocks.height}}>
+                    {items_araragi}
+                </div>
+            );
+        }
+
+        if (blocks.other.length) {
+            other.push(
+                <div className="timeline-arcgap" style={{height: 15 * blocks.height}}>
+                    {items_other}
+                </div>
+            );
+            other.push(
+                <div className="timeline-line" style={{height: 15 * blocks.height}}></div>
             );
         }
 
         return (
             <div className="Timeline">
                 <div className="timeline-inner">
-                    <div className="timeline-arcgap" style={{height: 20 * blocks.height}}>
-                        {items_other}
-                    </div>
-                    <div className="timeline-line" style={{height: 20 * blocks.height}}></div>
-                    <div className="timeline-dategap" style={{height: 20 * blocks.height}}>
+                    {other}
+                    <div className="timeline-dategap" style={{height: 15 * blocks.height}}>
                         {items_date}
                     </div>
-                    <div className="timeline-line" style={{height: 20 * blocks.height}}></div>
-                    <div className="timeline-arcgap" style={{height: 20 * blocks.height}}>
-                        {items_araragi}
-                    </div>
+                    {araragi}
                 </div>
             </div>
         );

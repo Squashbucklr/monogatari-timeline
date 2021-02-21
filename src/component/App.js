@@ -12,6 +12,8 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            windowWidth: 1080,
+            windowHeight: 937,
             arcsOrder: [...Array(constants.arcs.length).keys()],
             arcs: [],
             spoiler: {
@@ -22,6 +24,22 @@ class App extends React.Component {
             peek: [] // list of arcs
         }
     }
+
+    componentDidMount = () => {
+        this.updateDimensions();
+        window.addEventListener("resize", this.updateDimensions);
+      }
+    
+      componentWillUnmount = () => {
+        window.removeEventListener("resize", this.updateDimensions);
+      }
+    
+      updateDimensions = () => {
+        let windowWidth = typeof window !== "undefined" ? window.innerWidth : 0;
+        let windowHeight = typeof window !== "undefined" ? window.innerHeight : 0;
+    
+        this.setState({ windowWidth, windowHeight });
+      }
 
     setArcsOrder = (arcsOrder) => {
         if (!arcsOrder) {
@@ -46,14 +64,16 @@ class App extends React.Component {
     render() {
         return (
             <div className="App">
-                <HeadTitle/>
-                <Settings
-                    arcsOrder={this.state.arcsOrder}
-                    spoiler={this.state.spoiler}
-                    setArcsOrder={this.setArcsOrder}
-                    setSpoiler={this.setSpoiler}
-                    setViewArcs={this.setViewArcs}
-                />
+                <div className="app-left">
+                    <HeadTitle/>
+                    <Settings
+                        arcsOrder={this.state.arcsOrder}
+                        spoiler={this.state.spoiler}
+                        setArcsOrder={this.setArcsOrder}
+                        setSpoiler={this.setSpoiler}
+                        setViewArcs={this.setViewArcs}
+                    />
+                </div>
                 <Timeline
                     arcs={this.state.arcs}
                     peek={this.state.peek}
