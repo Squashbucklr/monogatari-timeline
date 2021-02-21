@@ -1,10 +1,8 @@
 import React from 'react';
 import constants from '../resources/constants.json';
 
-import Slider from '@material-ui/core/Button';
-
 import './Settings.scss';
-import ArcSlider from './ArcSlider';
+import ArcSelector from './ArcSelector';
 
 class Settings extends React.Component {
     constructor(props) {
@@ -12,14 +10,6 @@ class Settings extends React.Component {
         this.state = {
 
         };
-    }
-
-    onArcClick = (index) => {
-        this.props.setViewArcs(this.props.arcsOrder.slice(0, index));
-    }
-
-    handleChange = (e) => {
-        this.onArcClick(e.target.value);
     }
 
     toggleSpoiler = (spoiler) => {
@@ -64,7 +54,23 @@ class Settings extends React.Component {
                         LN Titles
                     </div>
                 </div>
-                <input onChange={this.handleChange}/>
+                <div className="settings-label">
+                    Arc Order
+                </div>
+                <div className="settings-value">
+                    <span>{this.props.arcsOrderName}</span>
+                </div>
+                <div className="settings-label">
+                    Select Viewed Arcs
+                </div>
+                <ArcSelector
+                    arcsOrder={this.props.arcsOrder}
+                    progress={this.props.progress}
+                    arcs={this.props.arcs}
+                    spoiler={this.state.spoiler}
+                    useLNTitle={this.state.useLNTitle}
+                    setProgress={this.props.setProgress}
+                />
             </div>
         );
     }

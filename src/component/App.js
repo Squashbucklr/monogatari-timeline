@@ -14,8 +14,9 @@ class App extends React.Component {
         this.state = {
             windowWidth: 1080,
             windowHeight: 937,
-            arcsOrder: [...Array(constants.arcs.length).keys()],
-            arcs: [],
+            arcsOrderName: constants.order[0].name,
+            arcsOrder: constants.order[0].order,
+            progress: 0,
             spoiler: {
                 spoilerArcsFuture: true,
                 spoilerArcsSeen: true,
@@ -53,8 +54,10 @@ class App extends React.Component {
         this.setState({spoiler: spoiler});
     }
 
-    setViewArcs = (arcs) => {
-        this.setState({arcs: arcs});
+    setProgress = (progress) => {
+        if (progress < 0) progress = 0;
+        if (progress > this.state.arcsOrder.length) progress = this.state.arcsOrder.length;
+        this.setState({progress: progress});
     }
 
     setUseLNTitle = (useLNTitle) => {
@@ -68,16 +71,19 @@ class App extends React.Component {
                     <HeadTitle/>
                     <Settings
                         arcsOrder={this.state.arcsOrder}
+                        arcsOrderName={this.state.arcsOrderName}
                         spoiler={this.state.spoiler}
                         useLNTitle={this.state.useLNTitle}
+                        progress={this.state.progress}
                         setUseLNTitle={this.setUseLNTitle}
                         setArcsOrder={this.setArcsOrder}
                         setSpoiler={this.setSpoiler}
-                        setViewArcs={this.setViewArcs}
+                        setProgress={this.setProgress}
                     />
                 </div>
                 <Timeline
-                    arcs={this.state.arcs}
+                    progress={this.state.progress}
+                    arcsOrder={this.state.arcsOrder}
                     spoiler={this.state.spoiler}
                     useLNTitle={this.state.useLNTitle}
                 />

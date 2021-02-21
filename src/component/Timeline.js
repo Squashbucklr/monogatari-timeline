@@ -79,18 +79,18 @@ class Timeline extends React.Component {
     getBlocks() {
         // Collect every arc start or end in sorted order
         let events = [];
-        for (let i = 0; i < this.props.arcs.length; i++) {
+        for (let i = 0; i < this.props.progress; i++) {
             events.push({
-                date: constants.arcs[this.props.arcs[i]].start,
+                date: constants.arcs[this.props.arcsOrder[i]].start,
                 on: true,
-                araragi: constants.arcs[this.props.arcs[i]].narrator == 0,
-                arc: this.props.arcs[i]
+                araragi: constants.arcs[this.props.arcsOrder[i]].narrator == 0,
+                arc: this.props.arcsOrder[i]
             });
             events.push({
-                date: constants.arcs[this.props.arcs[i]].end,
+                date: constants.arcs[this.props.arcsOrder[i]].end,
                 on: false,
-                araragi: constants.arcs[this.props.arcs[i]].narrator == 0,
-                arc: this.props.arcs[i]
+                araragi: constants.arcs[this.props.arcsOrder[i]].narrator == 0,
+                arc: this.props.arcsOrder[i]
             });
         }
         events.sort(function(a, b) {

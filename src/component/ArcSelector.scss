@@ -1,0 +1,56 @@
+.ArcSelector {
+    display: flex;
+    height: 220px;
+    align-items: center;
+    justify-content: center;
+}
+
+.arcselector-arrow {
+    flex: 0 0 auto;
+    background-color: #CCC;
+    height: 0px;
+    margin: 10px;
+    cursor: pointer;
+    &.left {
+        border-right: 30px solid #FFF;
+        border-top: 55px solid #000;
+        border-bottom: 55px solid #000;
+    }
+    &.right {
+        border-left: 30px solid #FFF;
+        border-top: 55px solid #000;
+        border-bottom: 55px solid #000;
+    }
+}
+
+.arcselector-small {
+    flex: 0 0 100px;
+    text-align: center;
+    & img {
+        height: 100px;
+        width: auto;
+        display: inline-block;
+    }
+    & span {
+        font-size: 10px;
+        display: inline-block;
+        line-height: 11px;
+        width: 100%;
+    }
+}
+
+.arcselector-big {
+    flex: 0 0 150px;
+    text-align: center;
+    & img {
+        height: 150px;
+        width: auto;
+    }
+        
+    & span {
+        font-size: 15px;
+        display: inline-block;
+        line-height: 18px;
+        width: 100%;
+    }
+}
