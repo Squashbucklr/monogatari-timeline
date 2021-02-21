@@ -17,11 +17,11 @@ class App extends React.Component {
             arcsOrder: [...Array(constants.arcs.length).keys()],
             arcs: [],
             spoiler: {
-                alwaysShowCompletedArcs: true,
-                hideSpoilerArcs: true,
-                hideAllArcs: false
+                spoilerArcsFuture: true,
+                spoilerArcsSeen: true,
+                arcsFuture: true
             },
-            peek: [] // list of arcs
+            useLNTitle: false
         }
     }
 
@@ -57,8 +57,8 @@ class App extends React.Component {
         this.setState({arcs: arcs});
     }
 
-    onPeek = (index) => {
-
+    setUseLNTitle = (useLNTitle) => {
+        this.setState({useLNTitle: useLNTitle});
     }
 
     render() {
@@ -69,6 +69,8 @@ class App extends React.Component {
                     <Settings
                         arcsOrder={this.state.arcsOrder}
                         spoiler={this.state.spoiler}
+                        useLNTitle={this.state.useLNTitle}
+                        setUseLNTitle={this.setUseLNTitle}
                         setArcsOrder={this.setArcsOrder}
                         setSpoiler={this.setSpoiler}
                         setViewArcs={this.setViewArcs}
@@ -76,8 +78,8 @@ class App extends React.Component {
                 </div>
                 <Timeline
                     arcs={this.state.arcs}
-                    peek={this.state.peek}
-                    onPeek={this.onPeek}
+                    spoiler={this.state.spoiler}
+                    useLNTitle={this.state.useLNTitle}
                 />
             </div>
         );

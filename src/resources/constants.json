@@ -1,32 +1,134 @@
 {
     "anime": [
-        "Bakemonogatari",
-        "Nisemonogatari",
-        "Nekomonogatari: Kuro",
-        "Monogatari Series: Second Season",
-        "Hanamonogatari",
-        "Tsukimonogatari",
-        "Owarimonogatari",
-        "Kizumonogatari",
-        "Koyomimonogatari",
-        "Owarimonogatari 2nd Season",
-        "Zoku Owarimonogatari"
+        {
+            "name": "Bakemonogatari",
+            "sname": "Bake",
+            "source": [0],
+            "arcs": [0, 1, 2, 3, 4]
+        },{
+            "name": "Nisemonogatari",
+            "sname": "Nise",
+            "source": [2],
+            "arcs": [6, 7]
+        },{
+            "name": "Nekomonogatari: Kuro",
+            "sname": "Neko: Kuro",
+            "source": [3],
+            "arcs": [8]
+        },{
+            "name": "Monogatari Series: Second Season",
+            "sname": "MSSS",
+            "source": [4, 5, 7, 8, 9],
+            "arcs": [9, 10, 12, 13, 14]
+        },{
+            "name": "Hanamonogatari",
+            "sname": "Hana",
+            "source": [6],
+            "arcs": [11]
+        },{
+            "name": "Tsukimonogatari",
+            "sname": "Tsuki",
+            "source": [10],
+            "arcs": [15]
+        },{
+            "name": "Owarimonogatari",
+            "sname": "Owari",
+            "source": [12],
+            "arcs": [28, 29, 30, 31]
+        },{
+            "name": "Kizumonogatari",
+            "sname": "Kizu",
+            "source": [1],
+            "arcs": [5]
+        },{
+            "name": "Koyomimonogatari",
+            "sname": "Koyomi",
+            "source": [11],
+            "arcs": [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]
+        },{
+            "name": "Owarimonogatari 2nd Season",
+            "sname": "Owari S2",
+            "source": [12],
+            "arcs": [32, 33, 34]
+        },{
+            "name": "Zoku Owarimonogatari",
+            "sname": "Zoku Owari",
+            "source": [13],
+            "arcs": [35]
+        }
     ],
     "ln": [
-        "Bakemonogatari",
-        "Kizumonogatari",
-        "Nisemonogatari",
-        "Nekomonogatari: Kuro",
-        "Nekomonogatari: Shiro",
-        "Kabukimonogatari",
-        "Hanamonogatari",
-        "Otorimonogatari",
-        "Onimonogatari",
-        "Koimonogatari",
-        "Tsukimonogatari",
-        "Koyomimonogatari",
-        "Owarimonogatari",
-        "Zoku Owarimonogatari"
+        {
+            "name": "Bakemonogatari",
+            "sname": "Bake",
+            "adaptation": [0],
+            "arcs": [0, 1, 2, 3, 4]
+        },{
+            "name": "Kizumonogatari",
+            "sname": "Kizu",
+            "adaptation": [7],
+            "arcs": [5]
+        },{
+            "name": "Nisemonogatari",
+            "sname": "Nise",
+            "adaptation": [1],
+            "arcs": [6, 7]
+        },{
+            "name": "Nekomonogatari: Kuro",
+            "sname": "Neko: Kuro",
+            "adaptation": [2],
+            "arcs": [8]
+        },{
+            "name": "Nekomonogatari: Shiro",
+            "sname": "Neko: Shiro",
+            "adaptation": [3],
+            "arcs": [9]
+        },{
+            "name": "Kabukimonogatari",
+            "sname": "Kabuki",
+            "adaptation": [3],
+            "arcs": [10]
+        },{
+            "name": "Hanamonogatari",
+            "sname": "Hana",
+            "adaptation": [4],
+            "arcs": [11]
+        },{
+            "name": "Otorimonogatari",
+            "sname": "Otori",
+            "adaptation": [3],
+            "arcs": [12]
+        },{
+            "name": "Onimonogatari",
+            "sname": "Oni",
+            "adaptation": [3],
+            "arcs": [13]
+        },{
+            "name": "Koimonogatari",
+            "sname": "Koi",
+            "adaptation": [3],
+            "arcs": [14]
+        },{
+            "name": "Tsukimonogatari",
+            "sname": "Tsuki",
+            "adaptation": [5],
+            "arcs": [15]
+        },{
+            "name": "Koyomimonogatari",
+            "sname": "Koyomi",
+            "adaptation": [8],
+            "arcs": [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]
+        },{
+            "name": "Owarimonogatari",
+            "sname": "Owari",
+            "adaptation": [6, 9],
+            "arcs": [28, 29, 30, 31, 32, 33, 34]
+        },{
+            "name": "Zoku Owarimonogatari",
+            "sname": "Zoku Owari",
+            "adaptation": [10],
+            "arcs": [35]
+        }
     ],
     "characters": [
         {

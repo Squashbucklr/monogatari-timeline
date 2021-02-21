@@ -1,4 +1,5 @@
 import { ArchiveSharp, FormatAlignRight } from '@material-ui/icons';
+import { configure } from '@testing-library/react';
 import React from 'react';
 import constants from '../resources/constants.json';
 
@@ -110,8 +111,6 @@ class Timeline extends React.Component {
             dates[dates.length - 1].events.push(events[i]);
         }
 
-        console.log(dates);
-
         let blocks_date = [];
         let blocks_araragi = [];
         let blocks_other = [];
@@ -156,13 +155,15 @@ class Timeline extends React.Component {
                         cur_araragi = {
                             arc: e.arc,
                             height: 0,
-                            top: pre_date_height + date_height
+                            top: pre_date_height + date_height,
+                            hide: (this.props.spoiler.spoilerArcsSeen && constants.arcs[e.arc].spoiler)
                         };
                     } else {
                         cur_other = {
                             arc: e.arc,
                             height: 0,
-                            top: pre_date_height + date_height
+                            top: pre_date_height + date_height,
+                            hide: (this.props.spoiler.spoilerArcsSeen && constants.arcs[e.arc].spoiler)
                         };
                     }
                 } else {
@@ -214,25 +215,41 @@ class Timeline extends React.Component {
         }
 
         for (let i = 0; i < blocks.araragi.length; i++) {
+            let hideName = "";
+            if (this.props.useLNTitle) {
+                let entry = constants.ln[constants.arcs[blocks.araragi[i].arc].ln];
+                hideName = entry.sname + " Arc " + (entry.arcs.indexOf(blocks.araragi[i].arc) + 1);
+            } else {
+                let entry = constants.anime[constants.arcs[blocks.araragi[i].arc].anime];
+                hideName = entry.sname + " Arc " + (entry.arcs.indexOf(blocks.araragi[i].arc) + 1);
+            }
             items_araragi.push(
                 <div className="timeline-arc" key={"a" + i} style={{
                     top: (15 * blocks.araragi[i].top),
                     lineHeight: (15 * blocks.araragi[i].height) - 2 + 'px',
                     height: (15 * blocks.araragi[i].height) - 2 + 'px',
-                    backgroundColor: constants.characters[constants.arcs[blocks.araragi[i].arc].focus].tint + "44"
-                }}>{constants.arcs[blocks.araragi[i].arc].name}</div>
+                    backgroundColor: blocks.araragi[i].hide ? "#443333" : constants.characters[constants.arcs[blocks.araragi[i].arc].focus].tint + "44"
+                }}>{blocks.araragi[i].hide ? hideName : constants.arcs[blocks.araragi[i].arc].name}</div>
             );
         }
 
         for (let i = 0; i < blocks.other.length; i++) {
+            let hideName = "";
+            if (this.props.useLNTitle) {
+                let entry = constants.ln[constants.arcs[blocks.other[i].arc].ln];
+                hideName = entry.sname + " Arc " + (entry.arcs.indexOf(blocks.other[i].arc) + 1);
+            } else {
+                let entry = constants.anime[constants.arcs[blocks.other[i].arc].anime];
+                hideName = entry.sname + " Arc " + (entry.arcs.indexOf(blocks.other[i].arc) + 1);
+            }
             items_other.push(
                 <div className="timeline-arc" key={"o" + i} style={{
                     top: (15 * blocks.other[i].top),
                     lineHeight: (15 * blocks.other[i].height) - 2 + 'px',
                     height: (15 * blocks.other[i].height) - 2 + 'px',
-                    backgroundColor: constants.characters[constants.arcs[blocks.other[i].arc].focus].tint + "66",
+                    backgroundColor: blocks.other[i].hide ? "#443333" : constants.characters[constants.arcs[blocks.other[i].arc].focus].tint + "66",
                     textAlign: 'right'
-                }}>{constants.arcs[blocks.other[i].arc].name}</div>
+                }}>{blocks.other[i].hide ? hideName : constants.arcs[blocks.other[i].arc].name}</div>
             );
         }
 
