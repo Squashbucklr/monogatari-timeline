@@ -288,7 +288,7 @@
             "end": 10508.4,
             "anime": 2,
             "ln": 3,
-            "image": 12,
+            "image": [12],
             "spoiler": false
         }, {
             "name": "Tsubasa Tiger",

@@ -67,8 +67,8 @@ class Settings extends React.Component {
                     arcsOrder={this.props.arcsOrder}
                     progress={this.props.progress}
                     arcs={this.props.arcs}
-                    spoiler={this.state.spoiler}
-                    useLNTitle={this.state.useLNTitle}
+                    spoiler={this.props.spoiler}
+                    useLNTitle={this.props.useLNTitle}
                     setProgress={this.props.setProgress}
                 />
             </div>
