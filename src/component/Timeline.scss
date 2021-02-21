@@ -2,6 +2,8 @@
     flex: 1 0 0px;
     width: 100%;
     align-self: center;
+    max-height: 100%;
+    overflow-y: auto;
 }
 
 .timeline-inner {

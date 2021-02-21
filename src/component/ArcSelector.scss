@@ -5,6 +5,13 @@
     justify-content: center;
 }
 
+.preload {
+    display: none;
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
+}
+
 .arcselector-arrow {
     flex: 0 0 auto;
     background-color: #CCC;

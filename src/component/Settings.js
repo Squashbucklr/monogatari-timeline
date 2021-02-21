@@ -3,6 +3,7 @@ import constants from '../resources/constants.json';
 
 import './Settings.scss';
 import ArcSelector from './ArcSelector';
+import Credits from './Credits';
 
 class Settings extends React.Component {
     constructor(props) {
@@ -71,6 +72,7 @@ class Settings extends React.Component {
                     useLNTitle={this.props.useLNTitle}
                     setProgress={this.props.setProgress}
                 />
+                <Credits/>
             </div>
         );
     }

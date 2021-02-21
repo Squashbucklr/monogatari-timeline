@@ -21,6 +21,12 @@ class ArcSelector extends React.Component {
     }
 
     render() {
+        let preload = [];
+        for(let i = 0; i < covers.length; i++) {
+            preload.push(
+                <img src={covers[i]}></img>
+            );
+        }
 
         let has_prev = this.props.progress > 1;
         let prev_cover = "";
@@ -84,6 +90,7 @@ class ArcSelector extends React.Component {
 
         return (
             <div className="ArcSelector">
+                <div className="preload">{preload}</div>
                 <div className="arcselector-arrow left" onClick={this.setProgress(this.props.progress - 1)}></div>
                 <div className="arcselector-small">
                     {prev_cover}

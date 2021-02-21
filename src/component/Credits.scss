@@ -1,0 +1,10 @@
+.Credits {
+    text-align: center;
+    font-size: 12px;
+
+    & a {
+        cursor: pointer;
+        text-decoration: underline;
+        color: #FFF;
+    }
+}

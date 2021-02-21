@@ -223,12 +223,14 @@ class Timeline extends React.Component {
                 let entry = constants.anime[constants.arcs[blocks.araragi[i].arc].anime];
                 hideName = entry.sname + " Arc " + (entry.arcs.indexOf(blocks.araragi[i].arc) + 1);
             }
+            let isLatest = (this.props.progress - 1) == this.props.arcsOrder.indexOf(blocks.araragi[i].arc);
             items_araragi.push(
                 <div className="timeline-arc" key={"a" + i} style={{
                     top: (15 * blocks.araragi[i].top),
                     lineHeight: (15 * blocks.araragi[i].height) - 2 + 'px',
                     height: (15 * blocks.araragi[i].height) - 2 + 'px',
-                    backgroundColor: blocks.araragi[i].hide ? "#443333" : constants.characters[constants.arcs[blocks.araragi[i].arc].focus].tint + "44"
+                    backgroundColor: blocks.araragi[i].hide ? "#443333" : constants.characters[constants.arcs[blocks.araragi[i].arc].focus].tint + "44",
+                    borderRight: isLatest ? "2px solid #FF0000" : ""
                 }}>{blocks.araragi[i].hide ? hideName : constants.arcs[blocks.araragi[i].arc].name}</div>
             );
         }
@@ -242,12 +244,14 @@ class Timeline extends React.Component {
                 let entry = constants.anime[constants.arcs[blocks.other[i].arc].anime];
                 hideName = entry.sname + " Arc " + (entry.arcs.indexOf(blocks.other[i].arc) + 1);
             }
+            let isLatest = (this.props.progress - 1) == this.props.arcsOrder.indexOf(blocks.other[i].arc);
             items_other.push(
                 <div className="timeline-arc" key={"o" + i} style={{
                     top: (15 * blocks.other[i].top),
                     lineHeight: (15 * blocks.other[i].height) - 2 + 'px',
                     height: (15 * blocks.other[i].height) - 2 + 'px',
                     backgroundColor: blocks.other[i].hide ? "#443333" : constants.characters[constants.arcs[blocks.other[i].arc].focus].tint + "66",
+                    borderLeft: isLatest ? "2px solid #FF0000" : "",
                     textAlign: 'right'
                 }}>{blocks.other[i].hide ? hideName : constants.arcs[blocks.other[i].arc].name}</div>
             );
