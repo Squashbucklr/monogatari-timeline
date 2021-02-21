@@ -87,18 +87,24 @@ class ArcSelector extends React.Component {
                 <div className="arcselector-arrow left" onClick={this.setProgress(this.props.progress - 1)}></div>
                 <div className="arcselector-small">
                     {prev_cover}
-                    <span>{prev_name}</span>
-                    <span>{prev_arcname}</span>
+                    <div>
+                        <span>{prev_name}</span>
+                        <span>{prev_arcname}</span>
+                    </div>
                 </div>
                 <div className="arcselector-big">
                     {cur_cover}
-                    <span>{cur_name}</span>
-                    <span>{cur_arcname}</span>
+                    <div>
+                        <span>{cur_name}</span>
+                        <span>{cur_arcname}</span>
+                    </div>
                 </div>
                 <div className="arcselector-small">
                     {next_cover}
-                    <span>{next_name}</span>
-                    <span>{next_arcname}</span>
+                    <div>
+                        <span>{next_name}</span>
+                        <span>{next_arcname}</span>
+                    </div>
                 </div>
                 <div className="arcselector-arrow right" onClick={this.setProgress(this.props.progress + 1)}></div>
             </div>

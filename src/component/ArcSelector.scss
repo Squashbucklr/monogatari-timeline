@@ -26,31 +26,48 @@
 .arcselector-small {
     flex: 0 0 100px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
     & img {
+        flex: 0 0 100px;
         height: 100px;
+        align-self: center;
         width: auto;
-        display: inline-block;
     }
-    & span {
-        font-size: 10px;
-        display: inline-block;
-        line-height: 11px;
-        width: 100%;
+    & div {
+        height: 33px;
+        display: flex;
+        flex-direction: column;
+        & span {
+            font-size: 10px;
+            display: inline-block;
+            line-height: 11px;
+            width: 100%;
+        }
     }
 }
 
 .arcselector-big {
     flex: 0 0 150px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
     & img {
+        flex: 0 0 150px;
         height: 150px;
+        align-self: center;
         width: auto;
     }
-        
-    & span {
-        font-size: 15px;
-        display: inline-block;
-        line-height: 18px;
-        width: 100%;
+
+    & div {
+        height: 54px;
+        display: flex;
+        flex-direction: column;
+        & span {
+            font-size: 15px;
+            display: inline-block;
+            line-height: 18px;
+            width: 100%;
+        }
     }
 }
