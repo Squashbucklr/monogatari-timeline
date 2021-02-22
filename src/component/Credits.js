@@ -18,18 +18,18 @@ class Credits extends React.Component {
         return (
             <div>
                 <div className="Credits">
-                    <a onClick={this.showCredits}>Credits</a> | <a href="https://github.com/Squashbucklr/monogatari-timeline">Source Code</a>
+                    <a onClick={this.showCredits}>Credits</a> | <a href="https://github.com/Squashbucklr/monogatari-timeline" target="_blank">Source Code</a>
                 </div>
                 <Modal title="Credits" content={
                     <div>
-                        <p>Created by Squashbucklr. <a href="https://github.com/Squashbucklr">Github</a> | <a href="https://myanimelist.net/profile/Squashbucklr">MAL</a></p>
+                        <p>Created by Squashbucklr. <a href="https://github.com/Squashbucklr" target="_blank">Github</a> | <a href="https://myanimelist.net/profile/Squashbucklr" target="_blank">MAL</a></p>
                         <p>Thanks to u/maxdefolsch for timeline sources:</p>
                         <ul>
-                            <li><a href="https://imgur.com/gallery/iXUyxam">Simplified Chronological Order</a></li>
-                            <li><a href="https://www.reddit.com/r/araragi/comments/413akz">Precise Timeline</a></li>
+                            <li><a href="https://imgur.com/gallery/iXUyxam" target="_blank">Simplified Chronological Order</a></li>
+                            <li><a href="https://www.reddit.com/r/araragi/comments/413akz" target="_blank">Precise Timeline</a></li>
                         </ul>
-                        <p><a href="https://www.reddit.com/r/araragi">r/araragi</a></p>
-                        <p><a href="https://www.reddit.com/r/araragi/comments/ln5fpl">Hana placement thread</a></p>
+                        <p><a href="https://www.reddit.com/r/araragi" target="_blank">r/araragi</a></p>
+                        <p><a href="https://www.reddit.com/r/araragi/comments/ln5fpl" target="_blank">Hana placement thread</a></p>
                         
                     </div>
                 } show={this.state.showCredits} hide={() => {this.setState({showCredits: false})}} />
