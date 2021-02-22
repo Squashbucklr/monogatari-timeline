@@ -14,7 +14,7 @@ class App extends React.Component {
         this.state = {
             windowWidth: 1080,
             windowHeight: 937,
-            arcsOrderName: constants.order[0].name,
+            arcsOrderSource: 0,
             arcsOrder: constants.order[0].order,
             progress: 0,
             spoiler: {
@@ -42,12 +42,13 @@ class App extends React.Component {
         this.setState({ windowWidth, windowHeight });
       }
 
-    setArcsOrder = (arcsOrder) => {
-        if (!arcsOrder) {
-            this.setState({arcsOrder: [...Array(constants.arcs.length).keys()]})
-        } else {
-            this.setState({arcsOrder: arcsOrder});
-        }
+    setArcsOrder = (arcsOrder, arcsOrderSource) => {
+        console.log(arcsOrder, arcsOrderSource)
+        this.setState({
+            progress: 0,
+            arcsOrder,
+            arcsOrderSource
+        });
     }
 
     setSpoiler = (spoiler) => {
@@ -71,7 +72,7 @@ class App extends React.Component {
                     <HeadTitle/>
                     <Settings
                         arcsOrder={this.state.arcsOrder}
-                        arcsOrderName={this.state.arcsOrderName}
+                        arcsOrderSource={this.state.arcsOrderSource}
                         spoiler={this.state.spoiler}
                         useLNTitle={this.state.useLNTitle}
                         progress={this.state.progress}

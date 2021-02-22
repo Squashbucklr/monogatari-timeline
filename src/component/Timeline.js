@@ -198,7 +198,6 @@ class Timeline extends React.Component {
 
     render() {
         let blocks = this.getBlocks();
-        console.log(blocks);
 
         let items_date = [];
         let items_araragi = [];
