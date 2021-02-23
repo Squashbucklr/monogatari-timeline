@@ -146,15 +146,7 @@ class Settings extends React.Component {
         ) : "";
 
         let warning = this.props.arcsOrderSource != 0 ? (
-            <div>
-                <p class="lred">Warning, you aren't using the light novel order.</p>
-                <p class="italic">Why isn't the series in chronological order?</p>
-                <p>explanation...</p>
-                <p class="italic">If people watched it as it released, isn't the anime release order fine?</p>
-                <p>explanation...</p>
-                <p class="italic">Why is Hanamonogatari in the middle of Second Season?</p>
-                <p>explanation...</p>
-            </div>
+            <p class="lred">Warning, you aren't using the preferred light novel order.</p>
         ) : "";
 
         return (
@@ -208,7 +200,15 @@ class Settings extends React.Component {
                         {arcOrderPresets}
                         <p><span className="button" onClick={this.toggleFullArcOrder}>{this.state.showFullArcOrder ? "Hide" : "Show" } full arc order</span></p>
                         {fullArcOrder}
-                        {warning}
+                        <div>
+                            {warning}
+                            <p class="italic">Why isn't the series in chronological order?</p>
+                            <p>The series is presented out of order on purpose. Not knowing certain events creates a sort of mystery element and improves the surprise during reveals. Arcs happening chronologically before later arcs are presented assuming you know what happens later down the line.</p>
+                            <p class="italic">If people watched it as it released, isn't the anime release order fine?</p>
+                            <p>As the anime was being released, the anime order was the only real viable way of watching the series. Now that all arcs in first season, second season, and final season have been released, watching it in the light novel order is prefered as the series was written that way to form a meta-narrative that isn't clearly conveyed when watched in other orders. Shaft also did a very good job adapting the series so that it works in light novel order. Even though that's not how the anime released, they didn't change the parts that wouldn't make sense having not seen certain parts. This makes the anime order actually more confusing to watch than the light novel order.</p>
+                            <p class="italic">Why is Hanamonogatari in the middle of Second Season?</p>
+                            <p>That's the way the novels originally came out. Even though Hanamonogatari is chronologically the last event to happen in the series, it introduces ideas that are brought up without explanation in later parts of second season. Watching it after the second arc in second season is important to the meta-narrative.</p>
+                        </div>
                     </div>
                 } show={this.state.showArcOrderSelector} hide={() => {this.setState({showArcOrderSelector: false})}} />
             </div>
