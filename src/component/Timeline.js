@@ -82,12 +82,14 @@ class Timeline extends React.Component {
         for (let i = 0; i < this.props.progress; i++) {
             events.push({
                 date: constants.arcs[this.props.arcsOrder[i]].start,
+                fuzzy: constants.arcs[this.props.arcsOrder[i]].fuzzy,
                 on: true,
                 araragi: constants.arcs[this.props.arcsOrder[i]].narrator == 0,
                 arc: this.props.arcsOrder[i]
             });
             events.push({
                 date: constants.arcs[this.props.arcsOrder[i]].end,
+                fuzzy: constants.arcs[this.props.arcsOrder[i]].fuzzy,
                 on: false,
                 araragi: constants.arcs[this.props.arcsOrder[i]].narrator == 0,
                 arc: this.props.arcsOrder[i]
@@ -104,6 +106,7 @@ class Timeline extends React.Component {
             if (Math.floor(events[i].date) != cur_date) {
                 dates.push({
                     date: Math.floor(events[i].date),
+                    fuzzy: events[i].fuzzy,
                     events: []
                 });
                 cur_date = Math.floor(events[i].date);
@@ -186,6 +189,7 @@ class Timeline extends React.Component {
             }
             blocks_date.push({
                 date: dates[i].date,
+                fuzzy: dates[i].fuzzy,
                 top: pre_date_height,
                 height: date_height
             });
@@ -208,7 +212,8 @@ class Timeline extends React.Component {
                 <div className="timeline-date" key={"d" + i} style={{
                     top: (15 * blocks.date[i].top),
                     lineHeight: (15 * blocks.date[i].height) - 6 + 'px',
-                    height: (15 * blocks.date[i].height) - 6 + 'px'
+                    height: (15 * blocks.date[i].height) - 6 + 'px',
+                    color: blocks.date[i].fuzzy ? '#AAA' : false
                 }}>{dateConvert(blocks.date[i].date).human}</div>
             );
         }
