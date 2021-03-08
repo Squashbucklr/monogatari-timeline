@@ -342,7 +342,7 @@
             "anime": 3,
             "ln": 7,
             "image": [13, 17],
-            "spoiler": true
+            "spoiler": false
         }, {
             "name": "Shinobu Time",
             "focus": 8,
