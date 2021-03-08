@@ -1,4 +1,3 @@
-import { ArchiveSharp, FormatAlignRight } from '@material-ui/icons';
 import { configure } from '@testing-library/react';
 import React from 'react';
 import constants from '../resources/constants.json';

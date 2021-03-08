@@ -5,7 +5,6 @@ import './Settings.scss';
 import ArcSelector from './ArcSelector';
 import Credits from './Credits';
 import Modal from './Modal';
-import { TimerSharp } from '@material-ui/icons';
 
 class Settings extends React.Component {
     constructor(props) {
